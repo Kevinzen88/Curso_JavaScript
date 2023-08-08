@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Módulos de Javascript</h1>
+
+    <script>
+      // 27) Programa una clase llamada Pelicula.
+
+      // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+      //   + Todos los datos del objeto son obligatorios.
+      //   + Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
+      //      7 restantes números.
+      //   + Valida que el título no rebase los 100 caracteres.
+      //   + Valida que el director no rebase los 50 caracteres.
+      //   + Valida que el año de estreno sea un número entero de 4 dígitos.
+      //   + Valida que el país o paises sea introducidos en forma de arreglo.
+      //   + Valida que los géneros sean introducidos en forma de arreglo.
+      //   + Valida que los géneros introducidos esten dentro de los géneros
+      //      aceptados*.
+      //   + Crea un método estático que devuelva los géneros aceptados*.
+      //   + Valida que la calificación sea un número entre 0 y 10 pudiendo ser
+      //     decimal de una posición.
+      //   + Crea un método que devuelva toda la ficha técnica de la película.
+      //   + A partir de un arreglo con la información de 3 películas genera 3
+      //     instancias de la clase de forma automatizada e imprime la ficha técnica
+      //     de cada película.
+
+      // * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+      
+      class peliClas{
+        constructor({id,titulo,director,estreno,pais,generos,calificacion}){
+          this.id = id;
+          this.titulo = titulo;
+          this.director = director;
+          this.estreno = estreno;
+          this.pais = pais;
+          this.generos = generos;
+          this.calificacion = calificacion;
+          this.valorIMDB(id);
+          this.valorTitulo(titulo);
+          this.valorDirector(director);
+          this.valorEstreno(estreno);
+          this.valorPais(pais);
+          this.valorGeneros(generos);
+          this.valorCalf(calificacion);
+        }
+
+ 
+        //Método Estático para los géneros y clase para llamarlo
+
+        static get listGen(){
+          return ["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV","Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"];
+        };
+
+        static acepGen(){
+          return console.info(`Los géneros existentes son ${peliClas.listGen.join(", ")}`);
+        };
+        
+
+
+        //Entrada y validacion de los datos de id,director y titulo
+
+        valorEntrada(dato,valor){
+          if(!valor) return console.error(`${dato} "${valor}" no contiene nada`)
+          if(typeof valor== "String")return console.error(`${dato} "${valor}"no es texto`)
+          
+          return true;
+        };
+
+        //valdiacion del tamaño que director y titulo
+        valorTamanio(datoT,valorT,tamanio){
+          if(valorT.length > tamanio){
+            return console.error(`${datoT} "${valorT}" contiene "${tamanio}" caracteres que excede el tamaño establecido`)
+          } 
+          return true;
+        };
+
+        //validacion para los numeros
+        valorNumero(dato,valor){
+          if(!valor) return console.error(`${dato} "${valor}" no contiene nada`);
+
+          if(typeof valor!== "number") return console.error(`${dato} "${valor}" el valor no es un número`);
+          
+          return true;
+        };
+
+        //validacion de los arrreglos del pais y genero
+        valorArreglo(dato,valor){
+          if(!valor) return console.error(`${dato
+          }"${valor}" esta vacío`);
+
+          if(!(valor instanceof Array)) return console.error(`${dato
+          }"${valor}" que fue puesto no es un arreglo`);
+
+          if(valor.length === 0) return console.error(`${dato
+          }"${valor}" no tiene datos a evaluar`);
+
+          return true;
+        };
+
+
+
+        //comprobacion por cadena si el id cumple
+        valorIMDB(id){
+          if(this.valorEntrada("Id",id)){
+            if(!(/^([a-z]){2}([0-9]){7}$/.test(id))){
+              return console.error(`El IMDB "${id}" no tiene la longitud necesaria o tiene valores en orden incorrecto`)
+            }
+          }
+        };
+
+
+        //comprobacion del tamaño para el titulo y director
+        valorTitulo(titulo){
+          if(this.valorEntrada("Título",titulo)){
+            this.valorTamanio("Título",titulo,100);
+          }
+        };
+        valorDirector(director){
+          if(this.valorEntrada("Director",director)){
+            this.valorTamanio("Director",director,50);
+          }
+        };
+
+
+        //comprobación si es un número y si cumple el tamaño asignado
+        valorEstreno(estreno){
+          if(this.valorNumero("Año de Estreno",estreno)){
+            if(!(/^([0-9]){4}$/.test(estreno))){
+              return console.error(`El año de estreno "${estreno}" tiene más o menos caracteres del indicado`)
+            }
+          }
+        };
+
+        //comprobación de array para el país y género
+        valorPais(pais){
+          this.valorArreglo("País",pais);
+        }
+
+        valorGeneros(generos){
+          if(this.valorArreglo("Géneros",generos)){
+            for(let genero of generos){
+              
+              if(!peliClas.listGen.includes(genero)){
+                console.error(`Géneros no aceptados "${generos.join(", ")}"`)
+                peliClas.acepGen();
+              }
+            }
+          }
+        }
+
+        //comprobacion para el rango especifico asignado
+        valorCalf(calificacion){
+          if(this.valorNumero("Calificación",calificacion)){
+            return (calificacion < 0 || calificacion > 10)
+            ?console.error(`El rango de la calificación no es válida`)
+            :this.calificacion = calificacion.toFixed(1);
+          }
+        }
+
+        //llamada de consola para imprimir la informacion
+        ficha(){
+          console.info("********** Ficha De Película *************");
+          console.info(`Ficha Técnica:\n                      Título: "${this.titulo}"\n                      Director:"${this.director}"\n                      Año de estreno: "${this.estreno}"\n                      País: "${this.pais.join(" - ")}"\n                      Géneros: ${this.generos.join("-")}"\n                      Calificación: "${this.calificacion}"\nID: "${this.id}"`)
+        }
+
+
+
+      }
+      
+      const peliculas = [
+        {
+          id: "tt6334354",
+          titulo: "El escuadrón suicida",
+          director: "James Gunn",
+          estreno: 2021,
+          pais: ["E.U","México"],
+          generos:["Action","Adventure","Comedy"],
+          calificacion: 7.22
+        },
+        {
+          id: "tt2975590",
+          titulo: "Batman v Superman: Dawn of Justice",
+          director: "Zack Snyder",
+          estreno: 2016,
+          pais:["E.U"],
+          generos:["Action","Adventure","Fantasy"],
+          calificacion: 6.45
+        },
+        {
+          id: "tt0245429",
+          titulo: "Sen to Chihiro no kamikakushi",
+          director: "Hayao Miyazaki",
+          estreno: 2012,
+          pais:["Japón"],
+          generos:["Animation","Adventure","Fantasy","Family"],
+          calificacion: 8.65
+        },
+        
+      ];
+
+      peliculas.forEach(a => new peliClas(a).ficha());
+      //peliClas.acepGen();
+      
+
+      
+    </script>
+  </body>
+</html>

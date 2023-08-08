@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios video 1</h1>
+ 
+    <script>
+      /*
+        18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+        19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+        20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+     */
+
+      //ejercicio 18
+
+      const cadeText = (texto = "") => {
+        let vocal = 0,
+          cons = 0;
+
+         for (let letra of texto) {
+          if (/[aeiou]/.test(letra)) {
+            vocal++;
+          }
+
+          if (/[bcdfghjklmnñopqrstvwxyz]/.test(letra)) {
+            cons++;
+          }
+        }
+        console.info(`El texto "${texto}" tiene ${vocal} vocales y ${cons} consonantes`);
+      };
+
+      console.info("*************** Ejercicio 18 ********************");
+      cadeText("kevin");
+
+      //ejercicio 19
+
+      const valNombre = (nom = "") => {
+        let val = /^[A-Za-zÑñ\s]+$/g.test(nom);
+
+        return val
+          ? console.info(`El nombre ${nom} es un nombre válido`)
+          : console.warn(`El nombre ${nom} es un valor incorrecto`);
+      };
+
+
+      console.info("*************** Ejercicio 19 ********************");
+      valNombre("Kevin Jose");
+
+      // ejercicio 20
+
+      const valCorreo = (correo = "") => {
+        let val = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(correo);
+
+        return val
+          ? console.info(`El correo ${correo} es válido`)
+          : console.warn(`El correo ${correo} no se reconoce`);
+      };
+
+      console.info("*************** Ejercicio 20 ********************");
+      valCorreo("abcde.fghi@hotmail.com");
+      
+    </script>
+  </body>
+</html>

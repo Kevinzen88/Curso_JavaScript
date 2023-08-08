@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asíncronía en JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Asíncronía en JavaScript</h1>
+  </body>
+
+  <script>
+    /*
+    //temporizadores
+
+    console.log("inicio");
+
+    //imprime una orden una sola vez
+    setTimeout(() => {
+        console.log("ejecucion del setTimeout");
+    }, 3000);
+
+    //imprime una orden con un intervalo de tiempo
+    setInterval(() => {
+        console.log("ejecucion del setInterval");
+    }, 1000);
+
+    //imprime la hora cada segundo
+    setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+    }, 1000);
+
+    //guardarlo en una variable con el clear puede limpiar el settimeout y el setinterval
+    let temp = setTimeout(() => {
+        console.log(new Date().toLocaleTimeString());
+    }, 1000);
+
+    clearTimeout(temp)
+    */
+
+    // Procesamiento single thread y multi thread
+    //Opereaciones de CPU y operaciones de I/O
+    //Operaccion concurrentes y paralelas
+    //operacion bloquente y no bloqueante
+    //operaciones sincronas y asincronas
+
+    //codigo sincrono bloqueante
+    (() => {
+      console.log("codigo 1");
+      console.log("inicio");
+
+      function dos() {
+        console.log("dos");
+      }
+
+      function uno() {
+        console.log("uno");
+        dos();
+        console.log("tres");
+      }
+
+      uno();
+      console.log("fin");
+    })();
+
+    //codigo asincrono no bloqueante
+
+    (() => {
+      console.log("codigo 2");
+      console.log("inicio");
+
+      function dos() {
+        setTimeout(function () {
+          console.log("dos");
+        }, 1000);
+      }
+
+      function uno() {
+        setTimeout(function () {
+          console.log("uno");
+        }, 0);
+
+        dos();
+        console.log("tres");
+      }
+
+      uno();
+      console.log("fin");
+    })();
+
+    //Callbacks
+
+    function cuadradoCallback(value, callback) {
+      setTimeout(() => {
+        callback(value, value * value);
+      }, 0 | (Math.random() * 1000));
+    }
+
+    cuadradoCallback(0, (value, result) => {
+      console.log("iniciar callback");
+      console.log(`callback:${value},${result}`);
+      cuadradoCallback(1, (value, result) => {
+        console.log(`callback:${value},${result}`);
+        cuadradoCallback(2, (value, result) => {
+        console.log(`callback:${value},${result}`);
+        cuadradoCallback(3, (value, result) => {
+        console.log(`callback:${value},${result}`);
+        cuadradoCallback(4, (value, result) => {
+        console.log(`callback:${value},${result}`);
+            });
+          });
+        });
+      });
+    });
+
+    //Promesas
+
+    function cuadradoPromise(value){
+      return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+          resolve({
+            value,
+            result: value*value
+          });
+        },0|Math.random()*1000);
+      });
+    }
+
+    cuadradoPromise(0)
+    .then((obj)=>{
+      console.log(`inicio del promise`);
+      console.log(`Promise: ${obj.value},${obj.result}`);
+      return cuadradoPromise(1);
+    })
+    .then((obj)=>{
+      console.log(`Promise: ${obj.value},${obj.result}`);
+      return cuadradoPromise(2);
+    })
+    .then((obj)=>{
+      console.log(`Promise: ${obj.value},${obj.result}`);
+      return cuadradoPromise(3);
+    })
+
+    .catch();
+
+
+    //async 
+    async function funcionAsyncronaDeclarada(){
+      try{
+        console.log("inicio");
+        let obj = cuadradoPromise(0);
+          console.log(`Asyns function: ${obj.value},${obj.result}`);
+
+        obj =  await cuadradoPromise(1);
+          console.log(`Asyns function: ${obj.value},${obj.result}`);
+      }catch(err){
+
+      }
+    }
+
+    funcionAsyncronaDeclarada();
+
+
+    //symbols
+
+    let id = Symbol("id");
+    let id2 = Symbol("id2");
+
+    console.log(id === id2);
+    console.log(typeof id,typeof id2);
+
+    const nombre = Symbol("nombre");
+    const saludar = Symbol("saludar");
+
+    const persona = {
+      [nombre]: "jon"
+    };
+
+    persona.nombre = "kevin jose";
+    console.log(persona.nombre);
+    console.log(persona[nombre]);
+
+    persona[saludar]= function() {
+      console.log("hola");
+    }
+
+    persona[saludar]();
+
+
+    for(let propiedad in persona){
+      console.log(propiedad);
+      console.log(persona[propiedad]);
+    }
+
+
+  </script>
+</html>

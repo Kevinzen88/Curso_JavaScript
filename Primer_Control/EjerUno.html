@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+
+</head>
+
+<body>
+    <h1>Ejercicios video 1</h1>
+
+    <script>
+    /*
+    1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+    2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+    3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+    4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+    */
+    
+
+    //ejercicio 1
+    
+    let nomEjeUno = "Hola Mundo";
+
+    function  contNum(palabra = ""){
+        if(!palabra){
+            console.error("No tienes nada ingresado");
+        }else{
+            console.info(`La palabra ${palabra} tiene ${palabra.length} caracteres`);
+        }
+    }
+    console.info("*************** Ejercicio 1 ********************");
+    contNum("*"+"Soy Kevin"+"*");
+
+
+    const conNumUno = (palabraUno = "") => 
+        (!palabraUno)
+            ?console.error("No tienes nada ingresado")
+            :console.info(`La palabra ${palabraUno} tiene ${palabraUno.length-2} caracteres`);
+
+    conNumUno("*"+"la vida es mala"+"*");
+
+
+    //ejercicio 2
+
+   
+
+    const recoTex = (palabraDos = "", tam = undefined)=>
+    (!palabraDos)
+        ?console.error("Ingresa algo válido")
+        :console.info(palabraDos.slice(0,tam));
+
+
+    console.info("*************** Ejercicio 2 ********************");
+    recoTex("Hola Mundo",4);
+
+    //ejercicio 3
+    
+
+    
+    const textoSeparado = (texto = "", separado = "") =>
+    (!texto)
+     ?console.error("texto no válido")
+     :(separado === undefined)
+         ?console.error("Carácter no válido")
+         :console.info(texto.split(separado));
+
+
+    console.info("*************** Ejercicio 3 ********************");
+    textoSeparado("soy kevin hola mundo soy yo",",");
+
+
+    //ejercicio 4
+
+
+    let repit = "Hola Mundo kevin ";
+
+    let repitCant = repit.repeat(3);
+
+    console.info("*************** Ejercicio 4 ********************");
+    console.log(repitCant);
+
+
+
+
+    </script>
+</body>
+
+</html>

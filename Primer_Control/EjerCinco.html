@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios video 1</h1>
+
+    <script>
+      /*
+        15) Programa una función para convertir números de base binaria a decimal y viceversa, p. ej. miFuncion(100,2) devolverá 4 base 10.
+        16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, p. ej. miFuncion(1000, 20) devolverá 800.
+        17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, p. ej. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+      */-
+
+      //ejercicios 15
+      const conBinDec = ( valor = "" , dato = "") => {
+
+        if (dato === 2){
+          return console.info(`${valor} a base ${dato} = ${parseInt(valor,dato)}`)
+        }else if(dato === 10){
+          return console.info(`${valor} a base ${dato} = ${valor.toString(2)}`)
+        }
+      }
+ 
+      console.info("*************** Ejercicio 15 ********************");
+      conBinDec(5,10);
+      conBinDec(101,2);
+
+      //ejercicios 16
+      
+      function descuento (numero, porcentaje) {
+        
+
+        return numero - (numero * porcentaje / 100)
+      }
+      console.info("*************** Ejercicio 16 ********************");
+      console.info( "El descuento es de: " + descuento(100,20)+ "%");
+      
+    
+      //ejercicios 17
+      let fechaValida = new Date('04/23/2000');
+      let ahoraValida = new Date();
+      let real = ahoraValida.getFullYear() - fechaValida.getFullYear();
+
+      fechaValida.setFullYear(ahoraValida.getFullYear);
+
+      
+      if(ahoraValida < fechaValida){
+        --real;
+      }
+      console.info("*************** Ejercicio 17 ********************");
+      console.info("Han pasado: "+ real+" años");
+
+    </script>
+  </body>
+</html>

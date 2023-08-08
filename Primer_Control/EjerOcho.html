@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios video 1</h1> 
+
+    <script>
+      /*
+       24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+       25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+       26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+     */
+
+      //ejercicio 24
+
+      const numerosOrdeandos = (arreglo = "") => {
+        return console.log({
+          asc: arreglo.map((item) => item).sort((a, b) => a - b),
+          des: arreglo.map((item) => item).sort((a, b) => b - a),
+        });
+      };
+
+      console.info("*************** Ejercicio 24 ********************");
+      numerosOrdeandos([1, 4, 10, 20]);
+
+
+
+      //ejercicio 25
+      const numArray = [1,15,15,20,20,3,5,4,20];
+      const sinDup = [];
+
+      for (var i = 0; i < numArray.length; i++) {
+        const elemento = numArray[i];
+
+        if (!sinDup.includes(numArray[i])) {
+          sinDup.push(elemento);
+        }
+      }
+      console.info("*************** Ejercicio 25 ********************");
+      console.log("La cadena de números es "+ "!"+numArray +"!"+ " quitando sus duplicados quedaría así "+sinDup);
+
+      //ejercicio 26
+
+      function ArrayAvg(myArray) {
+        let i = 0,
+          summ = 0,
+          ArrayLen = myArray.length;
+        while (i < ArrayLen) {
+          summ = summ + myArray[i++];
+        }
+        return summ / ArrayLen;
+      }
+
+      const myArray = [1, 5, 2, 3, 7];
+      let a = ArrayAvg(myArray);
+
+      console.info("*************** Ejercicio 26 ********************");
+      console.log("La cadena de números tiene de promedio: "+ a);
+
+      
+    </script>
+  </body>
+</html>

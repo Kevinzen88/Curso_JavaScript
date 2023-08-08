@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios video 1</h1>
+
+    <script>
+      /*
+    5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+    6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+    7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+    8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+    */
+
+      //ejercicio 5
+
+      function reverse(reverPal) {
+        if (reverPal === "") {
+          return "";
+        } else {
+          return reverse(reverPal.substr(1)) + reverPal.charAt(0);
+        }
+      }
+
+      let reverContr = reverse("me caes mal");
+
+
+      console.info("*************** Ejercicio 5 ********************");
+      console.log("La palabra invertida es "+ "*"+reverContr+"*");
+
+
+
+
+      const cambiarPalabra = (palabraTre = "") =>
+        !palabraTre
+          ? console.error("No hay nada que invertir")
+          : console.info(palabraTre.split("").reverse().join(""));
+
+      
+      cambiarPalabra("ala");
+
+
+
+
+
+      //ejercicio 6
+
+      const textContRep = (cambio = "", textoRep = "") => {
+        if (!cambio) return console.error("Nada de información");
+
+        if (!textoRep) return console.warn("No hay valores a evaluar");
+
+        let m = 0;
+        conteo = 0;
+
+        while (m !== -1) {
+          m = cambio.indexOf(textoRep, m);
+          if (m !== -1) {
+            m++;
+            conteo++;
+          }
+        }
+
+        return console.info(`La palabra o letra "${textoRep}" se repite ${conteo} veces`);
+      };
+
+      console.info("*************** Ejercicio 6 ********************");
+      textContRep("soy kevin","s");
+
+      //ejercicio 7
+
+      /*
+      function texto() {
+        
+        let palabra = prompt("Escribe una palabra").toLowerCase();
+
+        // eliminamos los espacios en blanco
+        palabra = palabra.replace(/ /g, "");
+
+        for (var i = 0; i < palabra.length; i++) {
+          if (palabra[i] != palabra[palabra.length - i - 1]) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      if (texto()) {
+        alert("Esto es palíndromo");
+      } else {
+        alert("Esto no es palíndromo");
+      }*/
+
+      
+      
+      //ejercicio 8
+
+      function eliminarCaracteres(palabraCua = "", patron = "") {
+        if(!palabraCua) return console.warn("Campo a evaluar vacío");
+
+        let replace = /xyz/gi;
+
+        let newPalabra = palabraCua.replaceAll(patron,"");
+
+        console.log(newPalabra);
+      }
+      console.info("*************** Ejercicio 8 ********************");
+      eliminarCaracteres("xyz1, xyz2, 1xyz3xyz, xyz4 y xyz6", "xyz");
+ 
+    </script>
+  </body>
+</html>

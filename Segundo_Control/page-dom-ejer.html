@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" data-dark>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Pagina de DOM</title>
+    <link rel="stylesheet" href="/css/page-dom-ejer.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
+  <body data-dark>
+    <header class="header">
+      <div class="container">
+        <h1>Ejercicios del DOM</h1>
+      </div>
+    </header>
+
+    
+  <aside class="panel">
+      <nav class="menu">
+          <a href="#seccion1" data-scroll-spy>Reloj Digital y Alarma Sonora</a>
+          <a href="#seccion2" data-scroll-spy>Eventos del Teclado</a>
+          <a href="#seccion3" data-scroll-spy>Cuenta Regresiva</a>
+          <a href="#seccion4" data-scroll-spy>Responsive con JavaScript</a>
+          <a href="#seccion5" data-scroll-spy>Responsive Tester</a>
+          <a href="#seccion6" data-scroll-spy>Detección de dispositivos (User Agent)</a>
+          <a href="#seccion7" data-scroll-spy>Detección de la conexión</a>
+          <a href="#seccion8" data-scroll-spy>Detección de la cámara web</a>
+          <a href="#seccion9" data-scroll-spy>Geolocalización</a>
+          <a href="#seccion10" data-scroll-spy>Filtros de Búsquedas</a>
+          <a href="#seccion11" data-scroll-spy>Sorteo Digital</a>
+          <a href="#seccion12" data-scroll-spy>Responsive Slider</a>
+          <a href="#seccion13" data-scroll-spy>Video Inteligente</a>
+          <a href="#seccion14" data-scroll-spy>Validación de formularios</a>
+          <a href="#seccion15" data-scroll-spy>Narrador</a>
+      </nav>
+  </aside>
+    <main data-dark>
+        <div class="container">
+            <section id="seccion1" class="section" data-scroll-spy>
+                <h2>
+                    Reloj Digital - <text>Alarma Sonora</text>
+                </h2>
+                <div id="reloj" class="reloj">**** 00:00:00 ****</div>
+
+                <div>
+                  <button class="pulse" id="on-Reloj">⏱️Iniciar Reloj</button>
+                  <button class="pulse" id="of-Reloj">⏱️Detener Reloj</button>
+                  <button class="pulse" id="on-Alarma">⏰Iniciar Alarma</button>
+                  <button class="pulse" id="of-Alarma">⏰Detener Alarma</button>
+                </div>
+
+                <div id="cambio" class="cont-img">
+                  <img src="/asset/img/link_png.png" id="img1" alt="">
+                </div>
+                
+
+            </section>
+            <section  id="seccion2" class="section" data-scroll-spy>
+                <h2>
+                    Eventos de <text>Teclado</text>
+                </h2>
+
+                <article  class="escenario" >
+                  <img class="figura" id="img2" src="/asset/img/nave.png" id="img2"alt="">
+                </article>
+
+            </section>
+            <section id="seccion3" class="section" data-scroll-spy>
+
+                <h2>
+                  Cuenta <text>Regresiva</text>
+                </h2>
+                <div class="cont-reloj" id="countdown"></div>
+
+            </section>
+            <section id="seccion4" class="section" data-scroll-spy>
+                <h2>
+                  Responsive en JavaScript
+                </h2>
+
+                <div id="youtube"></div>
+                <div id="mapas"></div>
+
+
+
+            </section>
+            <section id="seccion5" class="section" data-scroll-spy>
+                <h2>
+                  Responsive Tester
+                </h2>
+
+                <form class="row" id="responsive">
+                  <span>
+                    <input class="swing" name="direccion" type="url" placeholder="URL" required /><label for="URL">URL</label>
+                  </span>
+                                 
+                  <span>
+                    <input class="swing" name="ancho" type="text" placeholder="Ancho" required /><label for="Ancho">Ancho</label>
+                  </span>
+                  
+                  <span>
+                    <input  class="swing" name="alto" type="text" placeholder="Alto" required /><label for="Alto">Alto</label>                
+                  </span>
+                  <br>
+                  <input class="btn-0" name="probar" type="submit" value="Abrir Ventana">
+                  <input class="btn-0" name="cerrar" type="button" value="Cerrar Ventana">
+            
+                </form>
+
+
+            </section>
+            <section id="seccion6" class="section" data-scroll-spy>
+                <h2>
+                  Detección de Dispositivos<br>(User Agent)
+                </h2>
+                <div id="user-device"></div>
+            </section>
+            <section id="seccion7" class="section" data-scroll-spy>
+              <h2>
+                Detección de Red
+              </h2>
+
+            </section>
+            <section id="seccion8" class="section" data-scroll-spy>
+              <h2>
+                Detección de Cámara
+              </h2>
+
+              <video id="cam" ></video>
+            </section>
+            <section id="seccion9" data-dark class="section" data-scroll-spy>
+              <h2>
+                Geolocalización
+              </h2>
+
+              <div id="geolocation"></div>
+
+            </section>
+            <section id="seccion10" data-dark class="section" data-scroll-spy>
+              <h2>
+                Filtros de Búsqueda
+              </h2>
+
+              <input type="search" placeholder="Buscar" class="card-filtro">
+              <article class="cards-article cards">
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Perros</figcaption>
+                </figure>
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Personas</figcaption>
+                </figure>
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Random</figcaption>
+                </figure>
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Paisajes</figcaption>
+                </figure>
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Lugares</figcaption>
+                </figure>
+                <figure class="cards-figure card">
+                  <img src="" alt="">
+                  <figcaption>Escenarios</figcaption>
+                </figure>
+
+              </article>
+
+            </section>
+            <section id="seccion11" class="section float_center" data-dark data-scroll-spy>
+              
+              <h2>
+                Sorteo Digital
+              </h2>
+
+              <ul class="players child">
+                <li class="player">(A)👨‍💻</li>
+                <li class="player">(B)👨🏻‍💻</li>
+                <li class="player">(C)👨🏽‍💻</li>
+                <li class="player">(D)📗</li>
+                <li class="player">(E)📘</li>
+                <li class="player">(F)📙</li>
+                <li class="player">(G)👨‍🏫</li>
+                <li class="player">(H)👨‍🎓</li>
+              </ul>
+
+              <button id="winner-btn"> Obtener Ganador</button>
+            </section>
+            <section id="seccion12" class="section" data-scroll-spy>
+              <h2>
+                Responsive Slider
+              </h2>
+              <div class="slider">
+                <div class="slider-slides">
+                  <div class="slider-slide active">
+                    <img src="https://api.lorem.space/image/fashion?w=180&h=200" alt="">
+                  </div>
+                  <div class="slider-slide">
+                    <img src="https://api.lorem.space/image/shoes?w=180&h=200" alt="">
+                  </div>
+                  <div class="slider-slide">
+                    <img src="https://api.lorem.space/image/car?w=180&h=200" alt="">
+                  </div>
+                  <div class="slider-slide">
+                    <img src="https://api.lorem.space/image/watch?w=180&h=200" alt="">
+                  </div>
+                </div>
+                <div class="slider-btns">
+                  <a class="prev" href="#">&laquo;</a>
+                  <a class="next" href="#">&raquo;</a>
+                </div>
+              </div>
+            </section>
+            <section id="seccion13" class="section" data-scroll-spy>
+              <h2>
+                Video Inteligente
+              </h2>
+
+              <video class="tam" src="/asset/Majora.mp4" muted  loop data-video-majora></video>
+
+            </section>
+            <section id="seccion14" class="section" data-scroll-spy>
+              <h2>
+                Validación de formularios
+              </h2>
+              <form class="form-group" action="https://formsubmit.co/kevinjosemg2@gmail.com" method="POST" target="_blank">
+                <legend>Envió de Formulario</legend>
+                <input type="text" name="name" placeholder="Escribe tu nombre completo" title="Solo valores de tipo letras y espacios" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                <input type="email" name="correo" placeholder="Ingrese su correo electronico" title="Correo no aceptado" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+
+                <input type="text" name="subject" placeholder="Informacion general" title="el tema es requerido"  required>
+                <textarea name="comments" cols="50" rows="5" placeholder="Escribe tu Comentario" title="No debes pasar los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+                <input type="submit" value="enviar" >
+
+                <div class="contact-loader none">
+                  <img src="/asset/img/puff.svg" alt="Cargando....">
+                </div>
+
+                <div class="contact-mess none">
+                  <p><text>Datos Enviados</text></p>
+                </div>
+
+              </form>
+
+            </section>
+            <section id="seccion15" class="section" data-scroll-spy>
+              <h2>
+                Narrador
+              </h2>
+              <select id="speech-nav">
+                <option class="aling" value="">---VOCES----</option>
+              </select>
+              <br><br>
+              <textarea id="speech-text" cols="50" rows="5" placeholder="Ingresa el texto a leer"></textarea>
+              <br><br>
+              <button id="speech-button">Reproducir</button>
+            </section>
+    </main>
+
+    <div id="menu">
+      <i class="fas fa-bars"></i>
+    </div>
+   
+    <button class="scroll-top-btn hidden">&#11014;</</button>
+    <button class="dark-btn"><h5></h5></button>
+
+    <script src="/js/dom/men-hamburge.js" type="module"></script>
+    <script src="/js/control_dom.js" type="module"></script>
+  </body>
+</html>

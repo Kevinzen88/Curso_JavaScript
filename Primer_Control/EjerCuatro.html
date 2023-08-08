@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios video 1</h1>
+
+    <script>
+      /*
+        12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+        13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+        14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+      */
+
+      //ejercicio 12
+
+      const esPrimo = (numPrim) => {
+        
+        for (let p = 2; p < numPrim / 2; p++) {
+          if (numPrim % p == 0) return false;
+        }
+        
+        return true; 
+      };
+
+      console.info("*************** Ejercicio 12 ********************");
+      console.log("El valor es "+"'"+esPrimo(7)+"'");
+
+      //ejercicio 13
+
+      
+      
+      let numPI = 29;
+      console.info("*************** Ejercicio 13 ********************");
+      if  (numPI % 2 == 0) {
+        console.log("El número " + numPI + " es par" );
+      }else{
+        console.log("El número " + numPI + " es impar" );
+      }
+
+
+      //ejercicio 14
+
+      const verificador = (valorG = "",tipoU = "") => {
+        
+       if ( tipoU === "C" || tipoU === "c"){
+         return console.info(`El valor de ${valorG}°C es equivalente a ${Math.round((valorG * (9/5)) + 32)}°F`);
+
+
+       }else if(tipoU === "F" || tipoU === "f"){
+        return console.info(`El valor de ${valorG}°F es equivalente a ${Math.round(((valorG - 32) * (5/9)))}°C`);
+       }
+        
+      }
+
+      console.info("*************** Ejercicio 14 ********************");
+      verificador(0,"C");
+      verificador(32,"F");
+
+      
+
+
+
+    </script>
+  </body>
+</html>
